@@ -1,2 +1,4 @@
-Création d'un serveur web apache avec Wamp 
-Création de scripts python afin de permettre la communication entre le capteur (HW-611 E/P 280, BMP280) et le serveur (I2C)
+Création d'un serveur web apache avec Wamp (envoi de données en .json)
+Création de scripts python afin de permettre la communication entre le capteur environnemental (Température/Pression barométrique/Humidité) HW-611 E/P 280 et le serveur (I2C)
+Utilisation de bibliothèques python : 
+  PySerial qui permet d'accèder au ports série et de communiquer avec des périphériques matériels (donc avec 
