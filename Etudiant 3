@@ -1,1 +1,2 @@
-
+Création d'un serveur web apache avec Wamp 
+Création de scripts python afin de permettre la communication entre le capteur (HW-611 E/P 280, BMP280) et le serveur (I2C)
