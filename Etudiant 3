@@ -29,4 +29,6 @@ Les deux lignes fonctionnent ensemble pour permettre la communication I²C entre
                                                         FAIT
 ----------------------------------------------------------------------------------------------------------------------------
 
-Script python qui récolte les données du capteur 
+Script python qui récolte les données du capteur et fait clignoter une led pour indiquer que le script est lu dans la mémoire
+Montage et cablâge de l'ESP32 avec le capteur 
+Ajout de fichiers au serveur Wamp afin d'établir des tests de lecture de ports série 
