@@ -9,6 +9,14 @@ Afficher les états et les alarmes.
 Connecter ta page aux scripts PHP fournis par l'étudiant 3.
 Tester l'affichage des données reçues.
 
+CAHIER DES CHARGES 
+------------------
+LUCAS 
+
+Création d'un serveur web apache avec Wamp 
+Création de scripts pythons afin de permettre la communication entre le capteur ( et le serveur (I2C)
+
+
 
 Étudiant 2 — C++ Builder et HMI
 Développer l'application avec C++ Builder.
