@@ -5,10 +5,9 @@ Matériel physique :
 
 Matériel numérique : 
 
-  -Serveur Wamp 
+  -Serveur Wamp, web server central servant à recevoir les données de tout les relayeurs 
+  -Scripts Python servant à créer des liaisons entre les différents relayeurs et de récolter les données du capteur
   
-
-
 Création d'un serveur web apache avec Wamp (envoi de données en .json)
 Création de scripts python afin de permettre la communication entre le capteur environnemental et le serveur (I2C)
 Utilisation de bibliothèques python : 
