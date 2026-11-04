@@ -2,13 +2,12 @@
 
 | Tâche | Avancement |
 |---|---:|
-| Développer la page web | 70 % |
+| Développer la page web | 100 % |
 | Développer la partie visible par l’utilisateur | 100 % |
 | Créer la page web en HTML | 100 % |
-| Réaliser la mise en forme avec CSS | 15 % |
-| Ajouter les interactions avec JavaScript | 60 % |
+| Réaliser la mise en forme avec CSS | 100% |
+| Ajouter les interactions avec JavaScript | 100 % |
 | Créer les zones d’affichage des mesures | 100 % |
-| Créer les boutons de commande si nécessaire | 0 % |
-| Afficher les états et les alarmes | 20 % |
-| Connecter la page aux scripts PHP fournis par l’étudiant | Non précisé |
-| Tester l’affichage des données reçues | 0 % |
+| Créer les boutons de commande si nécessaire | 90 % |
+| Afficher les états et les alarmes | 0 % |
+| Tester l’affichage des données reçues | 100 % |
