@@ -1,5 +1,6 @@
                                                         GRANDES LIGNES
 ----------------------------------------------------------------------------------------------------------------------------
+
 Matériel physique : 
 
   -ESP32 servant de pivot entre les capteurs et le serveur (relais des informations)
@@ -17,12 +18,15 @@ Utilisation de bibliothèques python :
 
   -PySerial qui permet d'accèder au ports série et de communiquer avec des périphériques matériels (donc avec l'EP32)
 
-Infos subtiles : 
+Infos subtiles (capteur) : 
 
 - SDA = les données qui circulent.
 - SCL = l'horloge qui synchronise leur transmission.
 
 Les deux lignes fonctionnent ensemble pour permettre la communication I²C entre plusieurs composants.
+
 ----------------------------------------------------------------------------------------------------------------------------
                                                         FAIT
 ----------------------------------------------------------------------------------------------------------------------------
+
+Script python qui récolte les données du capteur 
