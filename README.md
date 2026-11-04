@@ -1,6 +1,6 @@
 # Répartition des tâches du projet
 
-## Mise en place du système
+## Étudiant 1 — Mise en place du système
 
 - Créer un serveur web Apache avec WampServer.
 - Développer des scripts Python ou MicroPython pour l’acquisition et la transmission des mesures.
