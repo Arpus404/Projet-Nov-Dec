@@ -1,0 +1,21 @@
+{
+  "num_Capteur": 1,
+  "date_Mesure": "2026-11-04 10:30:00",
+  "mesures": [
+    {
+      "lib_Mesure": "Temperature",
+      "val_Mesure": 22.5,
+      "unite_Mesurandes": "°C"
+    },
+    {
+      "lib_Mesure": "Humidite",
+      "val_Mesure": 65.2,
+      "unite_Mesurandes": "%"
+    },
+    {
+      "lib_Mesure": "Pression",
+      "val_Mesure": 1013.25,
+      "unite_Mesurandes": "hPa"
+    }
+  ]
+}
