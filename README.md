@@ -1,12 +1,12 @@
 # Répartition des tâches du projet
 
-    Étudiant 1 — Mise en place du système
+**Étudiant 1 — Mise en place du système**
 
 - Créer un serveur web Apache avec WampServer.
 - Développer des scripts Python ou MicroPython pour l’acquisition et la transmission des mesures.
 - Assurer la communication I²C entre l’ESP32 et le capteur.
 
-    Étudiant 2 — C++ Builder et interface homme-machine
+**Étudiant 2 — C++ Builder et interface homme-machine**
 
 - Développer l’application avec C++ Builder.
 - Concevoir l’interface homme-machine (IHM).
@@ -15,7 +15,7 @@
 - Développer les échanges avec le serveur.
 - Gérer les commandes et les retours d’information.
 
-    Étudiant 3 — ESP32 et serveur web
+**Étudiant 3 — ESP32 et serveur web**
 
 - Programmer l’ESP32.
 - Connecter les capteurs.
