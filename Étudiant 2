@@ -1,0 +1,47 @@
+# Étudiant 2 — Application C++ Builder et communication avec le serveur
+
+## Matériel physique
+
+- **PC User Builder** : poste de commande et de supervision permettant à l’utilisateur d’interagir avec le serveur web.
+- **PC Commande Builder** : serveur central hébergeant WampServer, chargé de recevoir les données et de communiquer avec l’application C++ Builder 2010.
+- **Connexion réseau Ethernet/TCP-IP** : liaison permettant la communication entre le PC User Builder et le serveur WampServer.
+
+## Logiciels et données
+
+- **C++ Builder 2010** : environnement de développement utilisé pour créer et modifier l’application Windows de commande et de supervision.
+- **WampServer** : environnement serveur intégrant Apache, PHP et MySQL, permettant de recevoir et de traiter les données.
+- **Application C++ Builder 2010** : interface graphique permettant à l’utilisateur de consulter les informations et d’interagir avec le serveur.
+- **Fichiers JSON** : format utilisé pour structurer les données échangées entre l’application et le serveur.
+
+## Développement et configuration
+
+- Prendre en main l’environnement de développement C++ Builder 2010.
+- Étudier l’application existante et comprendre son fonctionnement.
+- Analyser le code source et les différentes fonctionnalités de l’application.
+- Mettre en place la communication entre l’application C++ Builder 2010 et le serveur WampServer.
+- Configurer les échanges de données au moyen du protocole HTTP sur le réseau TCP/IP.
+- Développer ou modifier les fonctions permettant d’envoyer des données au serveur web.
+- Gérer la réception et l’exploitation des réponses du serveur.
+- Vérifier la transmission des données au format JSON.
+
+## Technologies et outils utilisés
+
+- **C++** : langage utilisé pour développer l’application.
+- **C++ Builder 2010** : environnement de développement permettant de créer et de modifier l’interface graphique.
+- **HTTP** : protocole permettant à l’application de communiquer avec le serveur web.
+- **TCP/IP** : ensemble de protocoles réseau assurant les échanges entre les deux ordinateurs.
+- **JSON** : format permettant de structurer les données envoyées et reçues.
+- **Apache** : serveur web intégré à WampServer, chargé de recevoir les requêtes HTTP.
+
+## Tests et validation
+
+- Vérifier le fonctionnement de l’application C++ Builder 2010.
+- Vérifier la connexion entre le PC User Builder et WampServer.
+- Tester l’envoi de données depuis l’application vers le serveur.
+- Vérifier la bonne réception des données par le serveur Apache.
+- Contrôler le format des données JSON transmises.
+- Valider la communication entre l’application et le serveur web.
+
+## Objectif final
+
+Permettre à l’application C++ Builder 2010 de communiquer avec le serveur WampServer afin d’envoyer, de recevoir et d’exploiter les données transmises par le système, au moyen d’une connexion réseau TCP/IP et du protocole HTTP.
