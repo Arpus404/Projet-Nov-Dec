@@ -1,0 +1,33 @@
+# Étudiant 3 — ESP32, capteur et serveur web
+
+## Matériel physique
+
+- **ESP32** : microcontrôleur chargé de récupérer les mesures du capteur et de les transmettre au PC serveur.
+- **Module HW-611 avec capteur BMP280** : capteur environnemental mesurant la température et la pression atmosphérique.
+
+## Logiciels et technologies
+
+- **WampServer** : environnement serveur intégrant Apache, PHP et MySQL, destiné à recevoir et à traiter les données.
+- **MicroPython** : langage utilisé sur l’ESP32 pour communiquer avec le capteur et produire les données au format JSON.
+- **Python et PySerial** : solution possible sur le PC pour lire les données transmises par un périphérique sur un port série.
+
+## Développement et configuration
+
+- Mettre en place un serveur web Apache avec WampServer pour recevoir et traiter des données JSON.
+- Développer un programme MicroPython pour récupérer les mesures du capteur et les transmettre vers le PC serveur.
+- Étudier et tester la lecture des données sur le port série.
+
+## Communication I²C
+
+Le capteur et l’ESP32 communiquent au moyen de deux lignes :
+
+- **SDA** : ligne de données.
+- **SCL** : ligne d’horloge qui synchronise les échanges.
+
+Dans le montage actuel, SDA est reliée à GPIO22 et SCL à GPIO23.
+
+## Travail réalisé
+
+- Réalisation d’un programme MicroPython qui récupère les mesures du capteur et fait clignoter une LED pour indiquer que la boucle du programme fonctionne.
+- Montage et câblage de l’ESP32 avec le capteur.
+- Ajout de fichiers sur le serveur Wamp pour effectuer des essais de lecture des ports série.
