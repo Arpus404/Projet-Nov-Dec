@@ -1,0 +1,248 @@
+from machine import Pin, SoftI2C
+import time
+import json
+import struct
+
+# ==========================================
+# CONFIGURATION DU CAPTEUR
+# ==========================================
+
+L1 = Pin(2, Pin.OUT)
+
+SDA_PIN = 22
+SCL_PIN = 23
+ADRESSE = 0x76
+
+NUM_CAPTEUR = 1
+NOM_CAPTEUR = "Capteur BMP280"
+EMPLACEMENT = "Salle 401"
+
+# Identifiants de la table mesurandes
+NUM_TEMPERATURE = 1
+NUM_PRESSION = 2
+
+FICHIER = "mesures.json"
+INTERVALLE = 60
+
+# ==========================================
+# INITIALISATION I2C
+# ==========================================
+
+i2c = SoftI2C(
+    scl=Pin(SCL_PIN),
+    sda=Pin(SDA_PIN),
+    freq=100000
+)
+
+print("Recherche du capteur BMP280...")
+
+appareils = i2c.scan()
+
+print("Adresses detectees :", [hex(a) for a in appareils])
+
+if ADRESSE not in appareils:
+    raise RuntimeError("BMP280 introuvable")
+
+identifiant = i2c.readfrom_mem(ADRESSE, 0xD0, 1)[0]
+
+print("Identifiant :", hex(identifiant))
+
+if identifiant != 0x58:
+    raise RuntimeError("BMP280 non reconnu")
+
+print("BMP280 reconnu !")
+
+# ==========================================
+# CALIBRATION BMP280
+# ==========================================
+
+calibration = i2c.readfrom_mem(
+    ADRESSE, 0x88, 24
+)
+
+coeff = struct.unpack(
+    "<HhhHhhhhhhhh",
+    calibration
+)
+
+(
+    T1, T2, T3,
+    P1, P2, P3,
+    P4, P5, P6,
+    P7, P8, P9
+) = coeff
+
+if T1 == 0 or P1 == 0:
+    raise RuntimeError("Calibration BMP280 invalide")
+
+# ==========================================
+# LECTURE DES MESURES
+# ==========================================
+
+def lire_bmp280():
+
+    # Mesure forcée
+    i2c.writeto_mem(ADRESSE, 0xF4, b'\x25')
+
+    time.sleep_ms(30)
+
+    data = i2c.readfrom_mem(
+        ADRESSE, 0xF7, 6
+    )
+
+    adc_p = (
+        (data[0] << 12) |
+        (data[1] << 4) |
+        (data[2] >> 4)
+    )
+
+    adc_t = (
+        (data[3] << 12) |
+        (data[4] << 4) |
+        (data[5] >> 4)
+    )
+
+    if adc_p == 0x80000 or adc_t == 0x80000:
+        raise RuntimeError("Mesure indisponible")
+
+    # Température
+    var1 = (
+        adc_t / 16384.0 - T1 / 1024.0
+    ) * T2
+
+    var2 = (
+        (adc_t / 131072.0 - T1 / 8192.0) ** 2
+    ) * T3
+
+    t_fine = var1 + var2
+
+    temperature = t_fine / 5120.0
+
+    # Pression
+    var1 = t_fine / 2.0 - 64000.0
+
+    var2 = var1 * var1 * P6 / 32768.0
+    var2 += var1 * P5 * 2.0
+    var2 = var2 / 4.0 + P4 * 65536.0
+
+    var1 = (
+        P3 * var1 * var1 / 524288.0
+        + P2 * var1
+    ) / 524288.0
+
+    var1 = (1.0 + var1 / 32768.0) * P1
+
+    if var1 == 0:
+        raise RuntimeError("Erreur calcul pression")
+
+    pression = 1048576.0 - adc_p
+
+    pression = (
+        pression - var2 / 4096.0
+    ) * 6250.0 / var1
+
+    var1 = (
+        P9 * pression * pression
+        / 2147483648.0
+    )
+
+    var2 = pression * P8 / 32768.0
+
+    pression += (var1 + var2 + P7) / 16.0
+
+    # Conversion Pa vers hPa
+    pression = pression / 100.0
+
+    if not (-40 <= temperature <= 85):
+        raise RuntimeError("Temperature incoherente")
+
+    if not (300 <= pression <= 1100):
+        raise RuntimeError("Pression incoherente")
+
+    return (
+        round(temperature, 2),
+        round(pression, 2)
+    )
+
+# ==========================================
+# DATE ET HEURE
+# ==========================================
+
+def obtenir_date():
+
+    date = time.localtime()
+
+    return "{:04d}-{:02d}-{:02d} {:02d}:{:02d}:{:02d}".format(
+        date[0], date[1], date[2],
+        date[3], date[4], date[5]
+    )
+
+# ==========================================
+# GENERATION DU JSON
+# ==========================================
+
+def enregistrer_json(temperature, pression):
+
+    date_mesure = obtenir_date()
+
+    donnees = {
+        "num_Capteur": NUM_CAPTEUR,
+        "nom_Capteur": NOM_CAPTEUR,
+        "emplacement": EMPLACEMENT,
+
+        "mesures": [
+            {
+                "num_Mesure": NUM_TEMPERATURE,
+                "lib_Mesure": "Temperature",
+                "date_Mesure": date_mesure,
+                "val_Mesure": temperature,
+                "unite_Mesurandes": "°C"
+            },
+            {
+                "num_Mesure": NUM_PRESSION,
+                "lib_Mesure": "Pression",
+                "date_Mesure": date_mesure,
+                "val_Mesure": pression,
+                "unite_Mesurandes": "hPa"
+            }
+        ]
+    }
+
+    # Enregistrement sur l'ESP32
+    with open(FICHIER, "w") as fichier:
+        json.dump(donnees, fichier)
+
+    print("Fichier JSON enregistre !")
+
+    # Envoi du JSON sur le port série, sur une seule ligne
+    print(json.dumps(donnees))
+
+# ==========================================
+# BOUCLE PRINCIPALE
+# ==========================================
+
+print("Systeme de mesure pret !")
+
+try:
+    while True:
+        try:
+            temperature, pression = lire_bmp280()
+
+            print("-------------------------")
+            print("Temperature :", temperature, "°C")
+            print("Pression :", pression, "hPa")
+
+            enregistrer_json(temperature, pression)
+
+        except (OSError, RuntimeError) as erreur:
+            print("Erreur :", erreur)
+
+        # Clignotement pendant l'attente avant la prochaine mesure
+        for _ in range(INTERVALLE):
+            L1.value(0)
+            time.sleep(0.5)
+            L1.value(1)
+            time.sleep(0.5)
+
+except KeyboardInterrupt:
+    print("Programme arrete.")
