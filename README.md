@@ -26,5 +26,3 @@
 - Créer et gérer la base de données MySQL.
 - Développer les API permettant aux interfaces web et C++ de communiquer avec le système.
 - Gérer la réception des commandes et leur transmission à l’ESP32.
-
-
