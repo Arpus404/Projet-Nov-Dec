@@ -1,0 +1,615 @@
+/* CSS centralisé — exemple généré à partir des styles présents dans les PHP.
+   Les sélecteurs sont isolés par page pour éviter les conflits. */
+
+/* ==================================================
+   index.php — page-dashboard
+================================================== */
+
+* {
+    margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+}
+
+body.page-dashboard {
+    font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #333;
+}
+
+body.page-dashboard header {
+    background: linear-gradient(130deg, #3498ef, #0d46cc);
+            color: white;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+}
+
+body.page-dashboard header h1 {
+    font-size: 23px;
+            font-weight: 600;
+}
+
+body.page-dashboard header p {
+    margin-top: 6px;
+            color: #cbd5e1;
+            font-size: 13px;
+}
+
+body.page-dashboard .user-info {
+    font-size: 14px;
+}
+
+body.page-dashboard .user-info a {
+    color: white;
+            margin-left: 15px;
+            text-decoration: none;
+            background: #334155;
+            padding: 9px 13px;
+            border-radius: 5px;
+}
+
+body.page-dashboard .user-info a:hover {
+    background: #475569;
+}
+
+body.page-dashboard .container {
+    max-width: 1250px;
+            margin: 30px auto;
+            padding: 0 20px;
+}
+
+body.page-dashboard h2 {
+    font-size: 19px;
+            margin-bottom: 18px;
+            font-weight: 600;
+}
+
+body.page-dashboard .stats {
+    display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            margin-bottom: 35px;
+}
+
+body.page-dashboard .stat-card {
+    background: white;
+            padding: 22px;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+}
+
+body.page-dashboard .stat-card p {
+    color: #64748b;
+            font-size: 14px;
+            margin-bottom: 12px;
+}
+
+body.page-dashboard .stat-card strong {
+    font-size: 27px;
+            color: #1e293b;
+}
+
+body.page-dashboard .sensors {
+    display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-bottom: 35px;
+}
+
+body.page-dashboard .sensor-card {
+    background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 20px;
+}
+
+body.page-dashboard .sensor-card h3 {
+    font-size: 16px;
+            margin-bottom: 7px;
+}
+
+body.page-dashboard .sensor-id {
+    color: #64748b;
+            font-size: 12px;
+}
+
+body.page-dashboard .sensor-top {
+    display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+}
+
+body.page-dashboard .status {
+    padding: 5px 9px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: bold;
+}
+
+body.page-dashboard .normal {
+    color: #15803d;
+            background: #dcfce7;
+}
+
+body.page-dashboard .warning {
+    color: #b45309;
+            background: #fef3c7;
+}
+
+body.page-dashboard .offline {
+    color: #b91c1c;
+            background: #fee2e2;
+}
+
+body.page-dashboard .sensor-info {
+    color: #64748b;
+            font-size: 13px;
+            line-height: 1.8;
+}
+
+body.page-dashboard .measure-value {
+    margin-top: 15px;
+            padding: 13px;
+            background: #f8fafc;
+            border-radius: 5px;
+}
+
+body.page-dashboard .measure-value small {
+    color: #64748b;
+}
+
+body.page-dashboard .measure-value strong {
+    display: block;
+            margin-top: 7px;
+            font-size: 24px;
+            color: #2563eb;
+}
+
+body.page-dashboard .table-container {
+    background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 20px;
+            overflow-x: auto;
+}
+
+body.page-dashboard .table-header {
+    display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+}
+
+body.page-dashboard button {
+    padding: 9px 14px;
+            background: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+}
+
+body.page-dashboard button:hover {
+    background: #1d4ed8;
+}
+
+body.page-dashboard table {
+    width: 100%;
+            border-collapse: collapse;
+            min-width: 600px;
+}
+
+body.page-dashboard th,
+body.page-dashboard td {
+    text-align: left;
+            padding: 13px;
+            border-bottom: 1px solid #e5e7eb;
+            font-size: 13px;
+}
+
+body.page-dashboard th {
+    background: #f8fafc;
+            color: #64748b;
+            font-weight: 600;
+}
+
+body.page-dashboard .alarms {
+    margin-top: 30px;
+            background: white;
+            padding: 20px;
+            border: 1px solid #e5e7eb;
+            border-left: 4px solid #dc2626;
+            border-radius: 6px;
+}
+
+body.page-dashboard .alarm-item {
+    padding: 12px;
+            margin-top: 10px;
+            background: #fef2f2;
+            color: #b91c1c;
+            font-size: 13px;
+            border-radius: 4px;
+}
+
+/* Petites touches visuelles */
+
+body.page-dashboard .stat-card,
+body.page-dashboard .sensor-card {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+}
+
+body.page-dashboard .stat-card:hover,
+body.page-dashboard .sensor-card:hover {
+    transform: translateY(-3px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+body.page-dashboard .stat-card {
+    border-top: 3px solid #2563eb;
+}
+
+body.page-dashboard .stat-card:nth-child(2) {
+    border-top-color: #16a34a;
+}
+
+body.page-dashboard .stat-card:nth-child(3) {
+    border-top-color: #f59e0b;
+}
+
+body.page-dashboard .stat-card:nth-child(4) {
+    border-top-color: #dc2626;
+}
+
+body.page-dashboard tbody tr:hover {
+    background: #f1f5f9;
+}
+
+body.page-dashboard button,
+body.page-dashboard .user-info a {
+    transition: background 0.2s;
+}
+
+/* Barre d'état de l'acquisition */
+
+body.page-dashboard .acquisition {
+    display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 6px;
+            padding: 14px 20px;
+            margin-bottom: 25px;
+            font-size: 14px;
+}
+
+body.page-dashboard .pastille {
+    display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 8px;
+            background: #94a3b8;
+}
+
+body.page-dashboard .pastille.ecoute {
+    background: #16a34a;
+}
+
+body.page-dashboard .pastille.recherche {
+    background: #2563eb;
+}
+
+body.page-dashboard .pastille.pause {
+    background: #f59e0b;
+}
+
+body.page-dashboard .pastille.arrete {
+    background: #dc2626;
+}
+
+body.page-dashboard .btn-pause {
+    background: #f59e0b;
+}
+
+body.page-dashboard .btn-pause:hover {
+    background: #d97706;
+}
+
+body.page-dashboard .btn-reprendre {
+    background: #16a34a;
+}
+
+body.page-dashboard .btn-reprendre:hover {
+    background: #15803d;
+}
+
+body.page-dashboard button:disabled {
+    background: #94a3b8;
+            cursor: not-allowed;
+}
+
+body.page-dashboard footer {
+    text-align: center;
+            padding: 25px;
+            color: #64748b;
+            font-size: 12px;
+}
+
+@media (max-width: 900px) {
+body.page-dashboard .stats {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+body.page-dashboard .sensors {
+    grid-template-columns: repeat(2, 1fr);
+}
+}
+
+@media (max-width: 600px) {
+body.page-dashboard header {
+    padding: 20px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+}
+
+body.page-dashboard .stats,
+body.page-dashboard .sensors {
+    grid-template-columns: 1fr;
+}
+
+body.page-dashboard .container {
+    padding: 0 15px;
+}
+}
+
+/* ==================================================
+   login.php — page-login
+================================================== */
+
+
+body.page-login {
+    position: relative;
+    isolation: isolate;
+
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: black;
+}
+
+/* Image de fond animée */
+
+body.page-login::before {
+    content: "";
+    position: fixed;
+    inset: -3%;
+    z-index: -1;
+    pointer-events: none;
+
+    background-image: url("../Backimage.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    transform:
+        perspective(1200px)
+        rotateX(var(--rotate-x, 0deg))
+        rotateY(var(--rotate-y, 0deg))
+        translate3d(
+            var(--move-x, 0px),
+            var(--move-y, 0px),
+            0
+        )
+        scale(1.04);
+
+    will-change: transform;
+    transition: transform 0.15s ease-out;
+}
+
+body.page-login .login .register {
+    position: relative;
+    isolation: isolate;
+
+    background: linear-gradient(
+        120deg,
+        rgba(32, 31, 31, 0.141),
+        rgba(255, 255, 255, 0.141)
+    );
+
+    padding: 30px;
+    border-radius: 12px;
+
+    width: 640px;
+    height: 310px;
+
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 800px;
+}
+
+/* BOX */
+body.page-login .register {
+    position: relative;
+    isolation: isolate;
+
+    background: linear-gradient(
+        120deg,
+        rgba(32, 31, 31, 0.141),
+        rgba(255, 255, 255, 0.141)
+    );
+
+    padding: 30px;
+    border-radius: 12px;
+    width: 640px;
+    height: 310px;
+
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 800px;
+}
+
+/* ANNEAU LUMINEUX */
+body.page-login .box::before {
+    content: "";
+    position: absolute;
+    inset: -5px;
+    border-radius: 17px;
+    padding: 3px;
+
+    background: conic-gradient(
+        from var(--angle),
+        transparent 0deg,
+        transparent 250deg,
+        #ff00e1 310deg,
+        #ff00e1 330deg,
+        transparent 360deg
+    );
+
+    z-index: 0;
+
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+
+    mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+
+    filter: blur(5px);
+
+    animation: rotateGlow 4s linear infinite;
+}
+
+/* CONTENU AU-DESSUS DU HALO */
+body.page-login .box > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* ROTATION */
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+@keyframes rotateGlow {
+    to {
+        --angle: 360deg;
+    }
+}
+
+
+body.page-login h2 {
+    margin: 0 0 18px;
+            color: rgb(255, 0, 225);
+            text-align: center;
+            font-family: fantasy;
+            font-size: 36px;
+}
+
+body.page-login input {
+    width: 100%;
+            padding: 10px;
+            margin-bottom: 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 5px;
+            box-sizing: border-box;
+}
+
+body.page-login input:focus {
+    outline: none;
+            border-color: #2563eb;
+}
+
+body.page-login button {
+    width: 100%;
+            padding: 10px;
+            background:rgb(255, 0, 225);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+}
+
+body.page-login button:hover {
+    background: rgb(241, 76, 222);
+}
+
+body.page-login .message {
+    background: #f1f5f9;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 13px;
+            margin-bottom: 15px;
+}
+
+body.page-login a {
+    display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: rgb(241, 76, 222);
+            font-size: 16px;
+            text-decoration: none;
+}
+
+
+
+/* ==================================================
+   esp.php — page-esp
+================================================== */
+
+body.page-esp {
+    font-family: Arial, sans-serif;
+    margin: 40px;
+    background: #f4f4f9;
+    color: #333;
+}
+
+body.page-esp h1 {
+    color: #0056b3;
+}
+
+body.page-esp .port-box {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 10px;
+    border-left: 5px solid #28a745;
+}
+
+body.page-esp .no-port {
+    background: #fff3cd;
+    color: #856404;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 5px solid #ffc107;
+}
+
+body.page-esp .btn-refresh {
+    display: inline-block;
+    padding: 10px 15px;
+    background: #0056b3;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
